@@ -350,7 +350,7 @@ if (scene == "MENU"&&swarn==0&&nodown==0){
 }
 if (scene == "M"){
 	if (stateM == 0){
-		if (canvasX > 319 && canvasX < 480 && canvasY > 50 && canvasY < 249){
+		if (canvasX > 82 && canvasX < 723 && canvasY > 3 && canvasY < 256){
 			stateM=100; deckC[0]=allC[0]; sendName = deckC[0]; allC.splice(0,1); atm[0]-=1; nodown=1;
 		}
 	}
@@ -419,7 +419,6 @@ shuffle(allC);
 allC2=startC.slice(0,6); for (let i = 0; i < addC.length; i++){allC2.push(addC[i]);}
 allC=allC2.slice(); allC2 = []; 
 
-console.log(allC);
 
 atm[0]=6; 
 
@@ -502,7 +501,7 @@ if (scene == "WHEEL"){
 		else{ctx.globalAlpha=1;}
 		if (wtimer2<50  || Math.floor(wtimer)!=mat[0]){
 			wtimer2++; wtimer+=0.5; if (wtimer>=21){wtimer=1;}
-			console.log(Math.floor(wtimer));
+			
 		}
 		else{
 		wtimer3++; if (wtimer3>30&&zovM[0]==100){money+=mat[1]; zovM[0]=200;}
@@ -551,8 +550,10 @@ if (scene == "M"){
 	
 	if (state>0){
 		if (stateM < 200){
+		if (sendName!=""){
 		cImage.src="cel/" + sendName + ".png";
 		ctx.drawImage(cImage,340,59,300/2.55,400/2.55);
+		}
 		ctx.drawImage(card,329,53,342/2.4,462/2.4);
 		ctx.font = "700 13px Arial"; ctx.fillStyle = "black"; ctx.textAlign = "center";
 		wrapText(sendName, 403,226,96,15,"OFF");
